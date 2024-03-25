@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analog clock, Digital clock and Binary clock">
+    <meta name="keyword" content="Analog clock, Digital clock and Binary clock">
+    <title>Clocks</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+
+        .container h1{
+            height: auto;width: auto;
+            margin: 15px;padding:10px 50px;
+            /* border: 1px solid gray; */
+
+            border-radius: 5px;
+            font-size: 50px;
+            background-color: rgba(255, 255, 255, 0.477);
+        }
+
+        .container{min-height: 100vh;width: auto;
+                   margin: 5px;padding: 5px;
+                   border: 2px solid gray;
+                   border-radius: 5px;
+
+                   display: flex;
+                   flex-direction: column;
+                   justify-content: center;
+                   align-items: center;
+
+                   background-image: linear-gradient(135deg, #abecd6 10%, #fbed96 100%); ;
+                }
+        .subcontainer{height: auto;width: 1450px;
+            margin: 5px;padding: 10px;
+            border: 1px solid gray;
+            border-radius: 4px;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+
+            background-image: linear-gradient(135deg, #FFF886 10%, #F072B6 100%);
+        }
+
+/* ANALOG CLOCK */
+        .analogclk{height: 450px;width: 600px;
+            margin: 20px;padding: 5px;
+            border: 1px solid gray;
+            border-radius: 4px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: lightgreen;
+            /* background-image: linear-gradient(135deg, #9be15d 10%, #00e3ae 100%); */
+        }
+        .circle{height: 400px;width: 400px;
+            margin: 1px;padding: 15px;
+            border: 3px solid black;
+            border-radius:300px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: end;
+
+            background:url(images/clkbg.jpg);
+            background-size:contain;
+            /* background-position: center;
+            background-repeat: no-repeat; */
+
+            transform: rotate(0deg);
+
+        }
+        .circle #hours,.circle #minutes,.circle #seconds{
+            height: 0px;width:180px;
+            
+            transform-origin: 0% 50%;
+            transform: rotate(-90deg);
+        }
+        .circle #hours{
+            border: 2.5px solid black;
+            /* background-color:black; */
+        }
+        .circle #minutes{
+            border: 2px solid blue;
+            /* background-color: blue; */
+            position: relative;
+            bottom: 3px;
+            
+        }
+        .circle #seconds{
+            border: 1px solid red;
+            /* background-color: red; */
+            position: relative;
+            bottom: 6px;
+
+        }
+        .analogclk #center{
+            height: 13px;width: 13px;
+            background-color: black;
+            border-radius: 15px;
+
+            position: relative;
+            right: 206px;
+        }
+
+/* DIGITAL CLOCK */
+        .digitalclk{height: 350px;width: 600px;
+            margin: 10px;padding: 5px;
+            border: 1px solid gray;
+            border-radius: 4px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            font-size:xx-large;
+            font-weight:400;
+            font-family: Arial, Helvetica, sans-serif;
+
+            background-color: lightgreen;
+        }
+        .digitalclk #date,.digitalclk #time,.digitalclk #mili{height: 90px;width: 550px;
+                    margin: 5px;padding:0px 0px 0px 140px;
+                    border: 1px solid gray;
+                    border-radius: 5px;
+                    background-color: lightseagreen;
+
+                    display: flex;
+                    /* justify-content: center; */
+                    align-items: center;
+                }
+           
+
+/* BINARY CLOCK */
+        .binaryclk{height:400px;width: 750px;
+            margin: 50px;padding: 5px;
+            border: .5px solid gray;
+            border-radius: 8px;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background-color: rgba(255, 255, 255, 0.292);
+            font-weight: bolder;
+        }
+        .binaryclk #hrs,.binaryclk #min,.binaryclk #sec{
+            height: 70px;width: 605px;
+            margin: 10px;padding: 5px;
+
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 45px;
+
+        }
+        .binaryclk #min{color: blue;}
+        .binaryclk #sec{color: red;}
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <section>
+            <div class="container">
+                <h1>Clocks</h1>
+                <div class="subcontainer">
+                    <div class="analogclk">
+                        <div class="circle" id="circle1">
+                            <div id="hours"></div>
+                            <div id="minutes"></div>
+                            <div id="seconds"></div>
+                        </div>
+                        <div id="center"></div>
+                    </div>
+
+                    <div class="digitalclk">
+                        <p id="date"></p>
+                        <p id="time"></p>
+                        <p id="mili"></p>
+                    </div>
+                    
+                    <div class="binaryclk">
+                        <div class="hrs">
+                            <p>Hours: </p><div id="hrs"></div>
+                        </div>
+                        <div class="min">
+                           <p>Minutes: </p> <div id="min"></div>
+                        </div>
+                        <div class="sec">
+                           <p>Seconds: </p> <div id="sec"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+
+    <script>
+        function digitaldatetime() {
+            let date = new Date();
+            let x = document.getElementById("date");
+            let y = document.getElementById("time");
+            let z = document.getElementById("mili");
+            x.innerHTML = "Date : " + date.toLocaleDateString();
+            y.innerHTML = "Time : " + date.toLocaleTimeString();
+            z.innerHTML = "Milisecond : " + `${date.getMilliseconds()}`;
+        }
+        setInterval("digitaldatetime()", 1);
+
+        function analogtime(){
+            let date = new Date();
+            let x = date.getHours();
+            let y = date.getMinutes();
+            let z = date.getSeconds();
+
+            let hrsangle = x*30;
+            let minangle = y*6;
+            let secangle = z*6;
+            document.querySelector(".circle #hours").style.transform = `rotate(${hrsangle-90}deg)`;
+            document.querySelector(".circle #minutes").style.transform = `rotate(${minangle-90}deg)`;
+            document.querySelector(".circle #seconds").style.transform = `rotate(${secangle-90}deg)`;
+        }
+        setInterval(analogtime,1000);
+
+        function binarytime(){
+            const str = "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+            let date = new Date();
+            let x = date.getHours();
+            let y = date.getMinutes();
+            let z = date.getSeconds();
+
+            document.getElementById("hrs").innerHTML = `${str.substring(0,x)}`; 
+            document.getElementById("min").innerHTML = `${str.substring(0,y)}`; 
+            document.getElementById("sec").innerHTML = `${str.substring(0,z)}`; 
+        }
+        setInterval(binarytime,1000);
+    </script>
+</body>
+
+</html>
+
+<!--  -->
